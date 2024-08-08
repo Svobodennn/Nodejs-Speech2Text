@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-text2speech",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Svobodennn/Nodejs-Text2Speech.git"
+  },
+  "author": "Melih Saraç",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Svobodennn/Nodejs-Text2Speech/issues"
+  },
+  "homepage": "https://github.com/Svobodennn/Nodejs-Text2Speech#readme",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "openai": "^4.55.1"
+  }
+}
