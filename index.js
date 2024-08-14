@@ -20,7 +20,12 @@ async function transcribeAudio(filePath) {
             model: 'whisper-1',
         });
 
-        return transcription.data.text;
+        const fileName = path.basename(filePath, path.extname(filePath));
+        const outputFilePath = path.join(__dirname, '/transcriptions/' + fileName + '.txt');
+        fs.writeFileSync(outputFilePath, transcription.text, 'utf8');
+
+
+        return transcription.text;
         
     } catch (error) {
         console.error("Error during transcription:", error);
@@ -60,14 +65,14 @@ async function analyzeMeetingTranscript(transcriptText) {
         ],
     });
 
-    console.log("Keypoints:", keyPoints.data.choices[0].message.content);
-    console.log("Action Items:", actionItems.data.choices[0].message.content);
-    console.log("Participants:", participants.data.choices[0].message.content);
-    console.log("Sentiment Analysis:", sentiment.data.choices[0].message.content);
+    console.log("Keypoints:", keyPoints.choices[0].message.content);
+    console.log("Action Items:", actionItems.choices[0].message.content);
+    console.log("Participants:", participants.choices[0].message.content);
+    console.log("Sentiment Analysis:", sentiment.choices[0].message.content);
 }
 
 // Example usage
-const filePath = path.join(__dirname, 'audios', 'test1.mp3');
+const filePath = path.join(__dirname, 'audios', 'sen_abdulhamidi_savundun.mp3');
 
 async function main() {
     const transcriptText = await transcribeAudio(filePath);
